@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Martian+Mono:wght@100..800&display=swap');
+
 :root {
     --primary-color: #6d28d9;
     --primary-color-hover: #5b21b6;
@@ -9,7 +11,6 @@
     --text-shadow: 2px 2px 4px rgb(0, 0, 0);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Martian+Mono:wght@100..800&display=swap');
 
 body {
     margin: 0;
