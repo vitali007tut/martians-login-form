@@ -22,15 +22,15 @@ export const useLoginForm = () => {
     const validate = (): FormErrors => {
         const newErrors: FormErrors = {};
         if (!values.email) {
-            newErrors.email = 'Email обязателен';
+            newErrors.email = 'Please fill out email field';
         } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-            newErrors.email = 'Введите корректный email';
+            newErrors.email = 'Enter the correct email address';
         }
 
         if (!values.password) {
-            newErrors.password = 'Пароль обязателен';
+            newErrors.password = 'Please fill out password field';
         } else if (values.password.length < 8) {
-            newErrors.password = 'Пароль должен быть не менее 8 символов';
+            newErrors.password = 'The password must be at least 8 characters long';
         }
         return newErrors;
     };

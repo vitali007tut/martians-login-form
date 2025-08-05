@@ -1,4 +1,4 @@
-import { LoginForm } from '../components/ui/LoginForm/LoginForm';
+import { LoginForm } from '../components/ui/LoginForm';
 import styles from './LoginPage.module.css';
 import image from '../assets/image.svg';
 import imageHover from '../assets/imageHover.svg';

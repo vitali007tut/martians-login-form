@@ -1,9 +1,9 @@
 import React, { type InputHTMLAttributes } from 'react';
-import styles from './Input.module.css';
+import styles from './styles.module.css';
 import clsx from 'clsx';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    label: string;
+    label: React.ReactNode;
     error?: string;
 }
 
@@ -21,11 +21,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ label, id
                 aria-describedby={error ? `${id}-error` : undefined}
                 {...rest}
             />
-            {error && (
-                <p id={`${id}-error`} className={styles.errorMessage} role="alert">
-                    {error}
-                </p>
-            )}
+            <p id={`${id}-error`} className={styles.errorMessage} role="alert">
+                {error ? error : ''}
+            </p>
         </div>
     );
 });
