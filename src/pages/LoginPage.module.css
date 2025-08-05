@@ -1,0 +1,40 @@
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.logoWrapper {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+}
+
+.logoImage,
+.logoImageHover {
+  position: absolute;
+  transition: opacity 0.4s ease;
+}
+
+.logoImage {
+  filter: drop-shadow(2px 4px 6px rgba(255, 255, 255, 0.4));
+}
+
+.logoImageHover {
+  opacity: 0;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+}
+
+.logoWrapper:hover .logoImageHover {
+  opacity: 1;
+}
+
+.logoWrapper:hover .logoImage {
+  opacity: 0;
+}
+
