@@ -30,7 +30,7 @@ export const useLoginForm = () => {
         if (!values.password) {
             newErrors.password = 'Please fill out password field';
         } else if (values.password.length < 8) {
-            newErrors.password = 'The password must be at least 8 characters long';
+            newErrors.password = 'Password must be at least 8 characters long';
         }
         return newErrors;
     };
@@ -47,12 +47,12 @@ export const useLoginForm = () => {
         setServerError(null);
         try {
             await authService.login(values.email, values.password);
-            alert('Успешный вход!');
+            alert('Successful entry!');
         } catch (error) {
             if (error instanceof Error) {
                 setServerError(error.message);
             } else {
-                setServerError('Произошла неизвестная ошибка');
+                setServerError('An unknown error has occurred');
             }
         } finally {
             setIsLoading(false);

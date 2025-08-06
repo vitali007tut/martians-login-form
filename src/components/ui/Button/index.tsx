@@ -1,6 +1,5 @@
 import type { ButtonHTMLAttributes } from 'react';
 import styles from './styles.module.css'
-import clsx from 'clsx';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     isLoading?: boolean;
@@ -8,7 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = ({ children, isLoading, ...rest }: ButtonProps) => {
     return (
-        <button className={clsx(styles.button)} disabled={isLoading} {...rest}>
+        <button className={styles.button} disabled={isLoading} {...rest}>
             {isLoading ? <div className={styles.spinner}></div> : children}
         </button>
     );

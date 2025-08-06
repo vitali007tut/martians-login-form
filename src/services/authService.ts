@@ -3,10 +3,10 @@ export const login = (email: string, password: string): Promise<{ success: boole
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (email === 'test@evilmartians.com' && password === 'password123') {
+            if (email === 'test@evilmartians.com' && password === '12345678') {
                 resolve({ success: true });
             } else {
-                reject(new Error('Неверный email или пароль'));
+                reject(new Error('Invalid email or password'));
             }
         }, 1500);
     });

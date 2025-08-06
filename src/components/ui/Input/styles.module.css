@@ -1,23 +1,21 @@
-.inputWrapper {
+.inputContainer {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.label {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  font-size: 0.875rem;
+  align-items: center;
 }
 
 .input {
+  font-family: "Martian Mono", monospace;
+  font-weight: 400;
+  flex: 1;
   padding: 0.75rem;
+  padding-right: 40px;
   border: var(--border);
   background-color: var(--background-color);
   border-radius: 0.375rem;
   font-size: 1rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
 
 .input:focus-visible {
@@ -46,8 +44,14 @@ input:-internal-autofill-selected {
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
 }
 
+.rightAddon {
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+}
+
 .errorMessage {
-  min-height: 17px;
+  min-height: 18px;
   margin: 0.25rem 0 0;
   font-family: "Google Sans Code", monospace;
   font-style: italic;
@@ -55,4 +59,18 @@ input:-internal-autofill-selected {
   font-size: 0.875rem;
   color: var(--error-color-hover);
   letter-spacing: -0.5px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 2px;
 }
