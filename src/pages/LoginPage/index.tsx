@@ -3,6 +3,7 @@ import { LoginForm } from '../../components/ui/LoginForm';
 import styles from './styles.module.css';
 import image from '../../assets/image.svg';
 import imageHover from '../../assets/imageHover.svg';
+import copyIcon from '../../assets/copyIcon.svg';
 
 export const LoginPage = () => {
     const [copiedEmail, setCopiedEmail] = useState(false);
@@ -28,7 +29,9 @@ export const LoginPage = () => {
                 >
                     test@evilmartians.com
                     <span className={styles.copyIcon}>
-                        {!copiedEmail && <span className={styles.clipboardIcon}>📋</span>}
+                        {!copiedEmail && (
+                            <img src={copyIcon} alt="copy-icon" className={styles.clipboardIcon} />
+                        )}
                         {copiedEmail && <span className={styles.checkIcon}>✓</span>}
                     </span>
                 </span>
@@ -42,7 +45,9 @@ export const LoginPage = () => {
                 >
                     12345678
                     <span className={styles.copyIcon}>
-                        {!copiedPassword && <span className={styles.clipboardIcon}>📋</span>}
+                        {!copiedPassword && (
+                            <img src={copyIcon} alt="copy-icon" className={styles.clipboardIcon} />
+                        )}
                         {copiedPassword && <span className={styles.checkIcon}>✓</span>}
                     </span>
                 </span>
