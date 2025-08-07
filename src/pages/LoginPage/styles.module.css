@@ -7,12 +7,13 @@
 }
 
 .logoWrapper {
+  cursor: url('../../assets/cursor-small.svg'), pointer;
   position: absolute;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: 100px;
-  height: 100px;
+  height: 67px;
 }
 
 .logoImage,
