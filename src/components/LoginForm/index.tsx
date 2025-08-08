@@ -1,14 +1,28 @@
-import { useLoginForm } from '../../../hooks/useLoginForm';
 import { Button } from '../Button';
 import { Input } from '../Input';
 import styles from './styles.module.css';
 import { useState } from 'react';
-import EyeIcon from '../../../assets/eye.svg';
-import EyeOffIcon from '../../../assets/eye-off.svg';
+import EyeIcon from '../../assets/eye.svg';
+import EyeOffIcon from '../../assets/eye-off.svg';
 import clsx from 'clsx';
 
-export const LoginForm = () => {
-    const { values, errors, isLoading, serverError, handleChange, handleSubmit } = useLoginForm();
+type LoginFormProps = {
+    values: Record<'email' | 'password', string>;
+    errors: Partial<Record<'email' | 'password', string>>;
+    isLoading: boolean;
+    serverError: string | null;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+};
+
+export const LoginForm = ({
+    values,
+    errors,
+    isLoading,
+    serverError,
+    handleChange,
+    handleSubmit,
+}: LoginFormProps) => {
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => setShowPassword((prev) => !prev);

@@ -1,13 +1,26 @@
 import { useState } from 'react';
-import { LoginForm } from '../../components/ui/LoginForm';
+import { LoginForm } from '../../components/LoginForm';
 import styles from './styles.module.css';
 import image from '../../assets/image.svg';
 import imageHover from '../../assets/imageHover.svg';
 import copyIcon from '../../assets/copyIcon.svg';
+import { useLoginForm } from '../../hooks/useLoginForm';
+import { Modal } from '../../components/Modal';
 
 export const LoginPage = () => {
     const [copiedEmail, setCopiedEmail] = useState(false);
     const [copiedPassword, setCopiedPassword] = useState(false);
+
+    const {
+        values,
+        errors,
+        isLoading,
+        serverError,
+        isSuccessModalOpen,
+        handleChange,
+        handleSubmit,
+        closeModal,
+    } = useLoginForm();
 
     const handleCopy = (text: string, setCopied: React.Dispatch<React.SetStateAction<boolean>>) => {
         navigator.clipboard.writeText(text).then(() => {
@@ -54,8 +67,19 @@ export const LoginPage = () => {
             </div>
 
             <main className={styles.pageContainer}>
-                <LoginForm />
+                <LoginForm
+                    values={values}
+                    errors={errors}
+                    isLoading={isLoading}
+                    serverError={serverError}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                />
             </main>
+
+            <Modal isOpen={isSuccessModalOpen} onClose={closeModal}>
+                <p>Successful entry!</p>
+            </Modal>
         </>
     );
 };

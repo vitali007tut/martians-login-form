@@ -9,6 +9,8 @@ export const useLoginForm = () => {
     const [errors, setErrors] = useState<FormErrors>({});
     const [isLoading, setIsLoading] = useState(false);
     const [serverError, setServerError] = useState<string | null>(null);
+    // Новое состояние для управления модальным окном
+    const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -47,7 +49,8 @@ export const useLoginForm = () => {
         setServerError(null);
         try {
             await authService.login(values.email, values.password);
-            alert('Successful entry!');
+            // Вместо alert, открываем модальное окно
+            setIsSuccessModalOpen(true);
         } catch (error) {
             if (error instanceof Error) {
                 setServerError(error.message);
@@ -59,12 +62,19 @@ export const useLoginForm = () => {
         }
     };
 
+    // Функция для закрытия модального окна
+    const closeModal = () => {
+        setIsSuccessModalOpen(false);
+    };
+
     return {
         values,
         errors,
         isLoading,
         serverError,
+        isSuccessModalOpen, // Возвращаем состояние
         handleChange,
         handleSubmit,
+        closeModal, // Возвращаем функцию закрытия
     };
 };
