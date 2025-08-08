@@ -48,7 +48,8 @@ Whether you're a native Martian or an Earthling traveler, this form prepares you
 
 ## 👾 Preview
 
-![Preview](./src/assets/preview.png)
+<img src="./src/assets/preview.png" alt="Preview" width="300" style="border-radius: 12px;" />
+
 
 ---
 
